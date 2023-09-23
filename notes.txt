@@ -1,0 +1,18 @@
+- real_escape_string()
+The "real_escape_string()" / "mysqli_real_escape_string()" function escapes special 
+characters in a string for use in an SQL query, taking into account the current character
+set of the connection.
+
+For example:
+<?php
+
+$lastname = "D'Ore";
+
+$sql="INSERT INTO Persons (LastName) VALUES ('$lastname')";
+
+// This query will fail, cause we didn't escape $lastname
+if (!$mysqli -> query($sql)) {
+  printf("%d Row inserted.\n", $mysqli->affected_rows);
+}
+
+?>
