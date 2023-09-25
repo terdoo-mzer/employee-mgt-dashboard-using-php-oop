@@ -1,6 +1,7 @@
 <?php
-// session_start();
+namespace Mzert\EmployeeMgtApp;
 require "Model.php";
+use Mzert\EmployeeMgtApp\Model;
 
 class Controller {
 
@@ -20,17 +21,19 @@ class Controller {
         $_SESSION['message'] = "insert";
         header("Location:index.php"); // Redirect the user to the index page with a url param that will be read and an action taken accordingly
         // header("Location:index.php?msg1=insert"); // Redirect the user to the index page with a url param that will be read and an action taken accordingly
-      
+        return true;
     } else {
         echo "Insert unsuccessful";
         die();
         header("Location:index.php?msg3=delete");
+        return false;
        }
     }
 
     public function getAllEmployees()
     {
         if ($this->db->getRecords()) {
+            echo "Successful!";
             return $this->db->getRecords();
         }
        return false;
@@ -40,6 +43,7 @@ class Controller {
     {
         $result =  $this->db->getSingleRecord($id);
         if ($result) {
+            echo "Successful!";
           return $result;
         }
        return false;
@@ -53,6 +57,7 @@ class Controller {
         if($dataUpdate  == true) {
             echo "Update is successful";
             header("Location:index.php?msg2=update");
+            return true;
         }
 
     }
@@ -64,6 +69,7 @@ class Controller {
         if($deletedData  == true) {
             echo "Delete  is successful";
             header("Location:index.php?msg3=delete");
+            return true;
         }
     }
     

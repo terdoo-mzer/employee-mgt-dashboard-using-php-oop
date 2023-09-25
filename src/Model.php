@@ -1,6 +1,7 @@
 <?php
+namespace Mzert\EmployeeMgtApp;
 
-use JetBrains\PhpStorm\Internal\ReturnTypeContract;
+use mysqli;
 
 class Model
 {
