@@ -37,7 +37,7 @@ class Model
         }
     }
 
-    public function getSingleRecord($id)
+    public function getSingleRecord(int $id)
     {
         $sql = "SELECT * FROM employees WHERE id='$id'";
         $result = $this->con->query($sql);

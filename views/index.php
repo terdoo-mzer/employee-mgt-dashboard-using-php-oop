@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Include database file
 require '../class/Controller.php';
 
@@ -15,8 +15,7 @@ $employees = $controller->getAllEmployees(); // Get all employees here
 if (isset($_POST['submit'])) {
     $controller->createEmployee($_POST);
 }
-
-
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,10 +38,10 @@ if (isset($_POST['submit'])) {
             <h4>EMPLOYEE MGT PROJECT:OOP</h4>
         </div><br><br>
         <?php
-        if (isset($_GET['msg1']) == "insert") {
+        if (isset($_SESSION['message'])) {
             echo "<div class='alert alert-success alert-dismissible'>
               <button type='button' class='close' data-dismiss='alert'>&times;</button>
-              Your Registration added successfully
+              Your Registration added successfully!
             </div>";
         }
         if (isset($_GET['msg2']) == "update") {
@@ -54,7 +53,7 @@ if (isset($_POST['submit'])) {
         if (isset($_GET['msg3']) == "delete") {
             echo "<div class='alert alert-success alert-dismissible'>
               <button type='button' class='close' data-dismiss='alert'>&times;</button>
-              Record deleted successfully
+              Employee record deleted successfully
             </div>";
         }
         ?>

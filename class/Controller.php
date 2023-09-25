@@ -1,5 +1,5 @@
 <?php
-
+// session_start();
 require "Model.php";
 
 class Controller {
@@ -10,15 +10,18 @@ class Controller {
         $this->db = new Model();
     }
 
-    public function createEmployee($data) 
+    public function createEmployee(array $data) 
     {
        $dataInsert = $this->db->insertRecord($data);
        if($dataInsert === true) {
         // var_dump($dataInsert);
         // die();
         echo "Insert is successful";
-        header("Location:index.php?msg1=insert"); // Redirect the user to the index page with a url param that will be read and an action taken accordingly
-       } else {
+        $_SESSION['message'] = "insert";
+        header("Location:index.php"); // Redirect the user to the index page with a url param that will be read and an action taken accordingly
+        // header("Location:index.php?msg1=insert"); // Redirect the user to the index page with a url param that will be read and an action taken accordingly
+      
+    } else {
         echo "Insert unsuccessful";
         die();
         header("Location:index.php?msg3=delete");
@@ -33,7 +36,7 @@ class Controller {
        return false;
     }
 
-    public function getSingleEmployee($id)
+    public function getSingleEmployee(int $id)
     {
         $result =  $this->db->getSingleRecord($id);
         if ($result) {
@@ -42,7 +45,7 @@ class Controller {
        return false;
     }
 
-    public function updateEmployee($data)
+    public function updateEmployee(array $data)
     {
        
         $dataUpdate = $this->db->updateRecord($data);
@@ -54,7 +57,7 @@ class Controller {
 
     }
 
-    public function deleteEmployee($id)
+    public function deleteEmployee(int $id)
     {
         $deletedData = $this->db->deleteRecord($id);
 
