@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Include database file
-require '../class/Controller.php';
+require '../src/Controller.php';
 
 $controller = new Controller();
 $employees = $controller->getAllEmployees(); // Get all employees here

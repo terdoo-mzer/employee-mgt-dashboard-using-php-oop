@@ -1,7 +1,7 @@
 <?php
 
 // Include database file
-require '../class/Controller.php';
+require '../src/Controller.php';
 
 $controller = new Controller();
 $employee = $controller->getSingleEmployee($_GET['id']);
