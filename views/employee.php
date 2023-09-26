@@ -1,5 +1,5 @@
 <?php
-
+use Mzert\EmployeeMgtApp\Controller;
 // Include database file
 require '../src/Controller.php';
 

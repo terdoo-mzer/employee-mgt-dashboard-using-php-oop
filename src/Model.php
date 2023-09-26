@@ -89,7 +89,6 @@ class Model
         if($sql) {
             return true;
         }
-
         return false;
     }
 }

@@ -1,0 +1,23 @@
+{
+    "name": "mzert/employee_mgt_app",
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mzert\\EmployeeMgtApp\\": "src/"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4": {
+            "Mzert\\Tests\\" : "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mzer Emmanuel Terdoo",
+            "email": "mzerterdoo6@gmail.com"
+        }
+    ],
+    "require": {}
+}
